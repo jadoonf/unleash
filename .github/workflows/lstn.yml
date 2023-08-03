@@ -1,0 +1,16 @@
+name: lstn CI
+
+on:
+  pull_request:
+
+jobs:
+  lstn:
+    name: listen.dev dependency scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone the project repo
+        uses: actions/checkout@v3
+      
+      - name: Run lstn scan
+        uses: listendev/action@v0.2.2

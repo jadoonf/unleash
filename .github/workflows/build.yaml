@@ -30,9 +30,15 @@ jobs:
         options: >-
           --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-
+ 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Scan your dependencies with the listen.dev CLI
+        uses: listendev/action@v0.2.2
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
